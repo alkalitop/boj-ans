@@ -1,4 +1,4 @@
-h, m = map(int, input().split(' '))
-mp = m+15
-hp = h+23+(mp//60)
-print('%d %d'%(hp%24, mp%60))
+H,M=map(int,input().split(' '))
+m=M+15
+h=H+23+(m//60)
+print(h%24,m%60)
