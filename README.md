@@ -1,3 +1,3 @@
 # baekjoon
 
-백준 풀이
+https://www.acmicpc.net/
