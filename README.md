@@ -1,3 +1,3 @@
 # baekjoon
 
-https://www.acmicpc.net/
+https://noj.am/
