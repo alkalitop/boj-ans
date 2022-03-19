@@ -22,21 +22,15 @@ else:
     if x1 == x2 and x3 != x4:
         c = (y4-y3)/(x4-x3)
         d = -c*x3+y3
-        if cont(x1, x3, x4):
-            if cont(c*x1+d, y1, y2):
-                print(1)
-            else:
-                print(0)
+        if cont(x1, x3, x4) and cont(c*x1+d, y1, y2):
+            print(1)
         else:
             print(0)
     elif x1 != x2 and x3 == x4:
         a = (y2-y1)/(x2-x1)
         b = -a*x1+y1
-        if cont(x3, x1, x2):
-            if cont(a*x3+b, y3, y4):
-                print(1)
-            else:
-                print(0)
+        if cont(x3, x1, x2) and cont(a*x3+b, y3, y4):
+            print(1)
         else:
             print(0)
     else:
