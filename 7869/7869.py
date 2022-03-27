@@ -3,21 +3,21 @@ import math
 x1, y1, r1, x2, y2, r2 = map(float, sys.stdin.readline().split())
 
 def angle (a, b, c):
-	return 2*math.acos((a*a+b*b-c*c)/(2*a*b))
+    return 2*math.acos((a*a+b*b-c*c)/(2*a*b))
 
 def sector (r, t):
-	return 0.5*(r*r)*t
+    return 0.5*(r*r)*t
 
 def triangle (r, t):
-	return 0.5*(r*r)*math.sin(t)
+    return 0.5*(r*r)*math.sin(t)
 
 def roundf (n):
-	g = int(n)
-	a = n - g
-	if a >= 0.5:
-		return g+1
-	else:
-		return g
+    g = int(n)
+    a = n - g
+    if a >= 0.5:
+        return g+1
+    else:
+        return g
 
 d = math.hypot(x2-x1, y2-y1)
 A = -1
