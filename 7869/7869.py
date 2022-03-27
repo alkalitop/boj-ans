@@ -23,9 +23,9 @@ d = math.hypot(x2-x1, y2-y1)
 A = -1
 
 if d <= abs(r2 - r1) and r1 < r2:
-	A = r1*r1*math.pi
+    A = r1*r1*math.pi
 elif d <= abs(r2 - r1) and r1 >= r2:
-	A = r2*r2*math.pi
+    A = r2*r2*math.pi
 elif d > r1+r2:
     A = 0
 else:
