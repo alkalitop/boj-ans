@@ -2,7 +2,7 @@ class stack:
     def __init__ (self):
         self.els = []    
     def push (self, el):
-        self.els.append(el)
+        self.els.insert(0, el)
         return el
     def top (self):
         if self.size() == 0:
