@@ -4,7 +4,7 @@ class stack:
     def push (self, el):
         self.els.insert(0, el)
         return el
-    def top (self):
+    def peek (self):
         if self.size() == 0:
             return None
         return self.els[0]
@@ -15,5 +15,5 @@ class stack:
         return value        
     def size (self):
         return len(self.els)
-    def is_empty (self):
+    def empty (self):
         return self.size() == 0
