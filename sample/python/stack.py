@@ -11,7 +11,7 @@ class stack:
     def pop ():
         value = self.top()
         if value != None:
-            delete self.els[0]
+            del self.els[0]
         return value        
     def size ():
         return len(self.els)
