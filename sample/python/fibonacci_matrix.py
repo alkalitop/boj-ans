@@ -20,5 +20,10 @@ def matrix_pow (A, n, p):
         A_[1][0] %= p
         A_[1][1] %= p
         return A_
+
+def F (n):
+    if n == 0: return 0
+    f = ((1, 1), (1, 0))
+    return matrix_pow(f, n)[0][1]
     
     
