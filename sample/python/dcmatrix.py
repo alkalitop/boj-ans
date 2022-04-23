@@ -18,6 +18,7 @@ class matrix:
             tmp = [0]*self.clen
             for j in range(self.clen):
                 tmp[j] += self.raw[i][j]+mat.raw[i][j]
+                if p: tmp[j] %= p
             data[i] = tmp
         return matrix(data)
 
@@ -27,6 +28,7 @@ class matrix:
             tmp = [0]*self.clen
             for j in range(self.clen):
                 tmp[j] += self.raw[i][j]-mat.raw[i][j]
+                if p: tmp[j] %= p
             data[i] = tmp
         return matrix(data)
 
