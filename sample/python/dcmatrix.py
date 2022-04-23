@@ -28,7 +28,7 @@ class matrix:
         t = matrix(self.pow(n//2, p).raw)
         res = None
         if n % 2 == 1:
-            res = t.mul(t, p).mul(matrix(self), p)
+            res = t.mul(t, p).mul(matrix(self.raw), p)
         else:
             res = t.mul(t, p)
         return res
