@@ -21,11 +21,10 @@ class matrix:
                     tmp[j] += self.raw[i][k]*mat.raw[k][j]
                 if p: tmp[j] %= p
             data[i] = tmp
-        self.raw = data
-        return self
+        return matrix(data)
 
     def pow(self, n, p=0):
-        if n == 1: return self
+        if n == 1: return matrix(self.raw)
         t = matrix(self.pow(n//2, p).raw)
         res = None
         if n % 2 == 1:
