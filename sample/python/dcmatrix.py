@@ -12,6 +12,24 @@ class matrix:
     def clen(self):
         return len(self.raw[0])
     
+    def add(self, mat, p=0):
+        data = [None]*self.rlen
+        for i in range(self.rlen):
+            tmp = [0]*self.clen
+            for j in range(self.clen):
+                tmp[j] += self.raw[i][j]+mat.raw[i][j]
+            data[i] = tmp
+        return matrix(data)
+
+    def sub(self, mat, p=0):
+        data = [None]*self.rlen
+        for i in range(self.rlen):
+            tmp = [0]*self.clen
+            for j in range(self.clen):
+                tmp[j] += self.raw[i][j]-mat.raw[i][j]
+            data[i] = tmp
+        return matrix(data)
+
     def mul(self, mat, p=0):
         data = [None]*self.rlen
         for i in range(self.rlen):
