@@ -1,26 +1,33 @@
 class matrix:
     def __init__(self, data):
         self.raw = data
-        self.__rlen = len(data)
-        self.__clen = len(data[0])
     
     @property
     def rlen(self):
-        return self.__rlen
+        return len(self.raw)
 
     @property
     def clen(self):
-        return self.__clen
+        return len(self.raw[0])
     
-    def mul(self, mat):
+    def mul(self, mat, p=0):
         data = [None]*self.rlen
         for i in range(self.rlen):
             tmp = [0]*mat.clen
             for j in range(mat.clen):
-                #tmp = [0]*mat.clen
                 for k in range(self.clen):
                     tmp[j] += self.raw[i][k]*mat.raw[k][j]
+                if p: tmp[j] %= p
             data[i] = tmp
         self.raw = data
-        self.__rlen = len(data)
-        self.__clen = len(data[0])
+        return self
+
+    def pow (self, n, p=0):
+        if n == 1: return self
+        t = self.pow(n//2, p)
+        res = None
+        if n % 2 == 1:
+            res = t.mul(t, p).mul(self, p)
+        else:
+            res = t.mul(t, p)
+        return res
