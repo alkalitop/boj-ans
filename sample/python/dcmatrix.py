@@ -22,9 +22,9 @@ class matrix:
         self.raw = data
         return self
 
-    def pow (self, n, p=0):
+    def pow(self, n, p=0):
         if n == 1: return self
-        t = self.pow(n//2, p)
+        t = matrix(self.pow(n//2, p).raw)
         res = None
         if n % 2 == 1:
             res = t.mul(t, p).mul(self, p)
