@@ -1,3 +1,2 @@
 # baekjoon
-
-[![Solved.ac](http://mazassumnida.wtf/api/v2/generate_badge?boj=sanha129)](https://solved.ac/sanha129)
+현재 탈퇴 요청을 한 상태입니다.
