@@ -3,7 +3,8 @@
 ## 마지막 기록
 |-|-|
 |:---:|:---:|
-|아이디|sanha129|
+|ID|sanha129|
+|Joined|22.03.11|
 |AC Rating|1217|
 |Tier|Gold III|
 |Class|3|
