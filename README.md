@@ -3,4 +3,8 @@
 ## 마지막 기록
 |a|b|c|
 |:---:|:---:|:---:|
-|d|e|f|
+|Tier|Gold III|-|
+|AC Rating|1217|-|
+|Class|3|-|
+|Solved|272|-|
+|Rival|9|-|
