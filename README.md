@@ -10,7 +10,7 @@
 |Tier|Gold III|
 |Class|3|
 |Solved|272 problems|
-|Rival|9 rivals|
+|Rival|11 rivals|
 |Maximum Streak|61 days|
 |EXP|2,994,276|
 |Tag with Highest Rating|math (1283, Gold II)|
