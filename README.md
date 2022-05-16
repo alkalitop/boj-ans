@@ -5,6 +5,7 @@
 |:---:|:---:|
 |ID|sanha129|
 |Joined|22.03.11|
+|Left|22.05.10|
 |AC Rating|1217|
 |Tier|Gold III|
 |Class|3|
