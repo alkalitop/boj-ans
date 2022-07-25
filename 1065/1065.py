@@ -12,9 +12,5 @@ def func (n):
         return 0
    
 for n in range(1, int(N)+1):
-    if n < 10:
-        c += 1
-    else: 
-	c += func(n)  
- 
+    c += 1 if n < 10 else func(n)
 print(c)
