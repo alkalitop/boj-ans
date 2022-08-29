@@ -1,7 +1,7 @@
 s = input()
 isword = 0
 c = 0
-for i in range(0, len(s)):
+for i in range(len(s)):
     if s[i] == ' ':
         isword = 0
     else:
