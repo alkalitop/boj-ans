@@ -1,4 +1,4 @@
-a,b,c=map(int,input().split(' '))
+a,b,c=map(int,input().split())
 M=lambda x,y,z: x>=y and x>=z
 if (a-b)*(b-c)*(c-a)!=0:
     print(100*(a if M(a,b,c) else (b if M(b,c,a) else c)))
