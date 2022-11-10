@@ -1,5 +1,5 @@
 z = map(int, input().split())
 nsum = 0
 for i in z:
-    nsum += z**2
+    nsum += i**2
 print(nsum % 10)
