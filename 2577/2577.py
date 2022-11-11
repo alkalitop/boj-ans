@@ -1,10 +1,9 @@
 import sys
-a = int(sys.stdin.readline())
-b = int(sys.stdin.readline())
-c = int(sys.stdin.readline())
-count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+input = sys.stdin.readline 
+a, b, c = map(int, [input() for i in range(3)])
+count = [0]*10
 prod = str(a*b*c)
-for i in range(0, len(prod)):
+for i in range(len(prod)):
     count[int(prod[i])] = count[int(prod[i])] + 1
-for i in range(0, 10):
+for i in range(10):
     print(count[i])
