@@ -70,7 +70,7 @@ def plr (n):
     i = 0
 
     while n > 1:
-        alternative_c = [-1, 2, -2]
+        alternative_c = [-1, 2, -2, 3, -3, 4, -4, 5, -5]
         p = rho_seg(n, x, 1)
         while p == None:
             p = rho_seg(n, x, alternative_c[0])
@@ -80,10 +80,10 @@ def plr (n):
             i += 1
             n //= p
             if n == 1:
-                return res
+                return sorted(res)
             if mrpt(n):
                 res[i] = n
-                return res
+                return sorted(res)
         else:
             x = floor((random()*log2(n+1)))+2
     return sorted(res)
