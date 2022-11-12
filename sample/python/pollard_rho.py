@@ -62,7 +62,7 @@ def rho_seg (n, x, c):
 		if mrpt(d):
 			return d
 		else:
-			return rho_seg(d, x)
+			return rho_seg(d, x, )
 
 def plr (n):
     x = 2
