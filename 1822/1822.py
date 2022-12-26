@@ -6,4 +6,4 @@ if not len(C):
     print(0)
 else: 
     print(len(C))
-    print(' '.join(map(str, sorted(list(C)))))
+    print(*sorted(list(C)))
