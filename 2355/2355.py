@@ -1,3 +1,3 @@
 a, l = map(int, input().split())
-n = a - l + 1 if a > l else l - a + 1
+n = 1 + (a - l if a > l else l - a)
 print(int(n*(a+l)/2))
