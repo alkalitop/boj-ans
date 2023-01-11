@@ -1,3 +1,3 @@
-N = int(input())
-for i in range(0, N):
-    print('*'*(N-i))
+n = int(input())
+for i in range(n):
+    print('*'*(n-i))
