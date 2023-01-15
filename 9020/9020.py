@@ -14,7 +14,7 @@ while cursor < 10000:
 
 T = int(input())
 
-for i in range(0, T):
+for i in range(T):
     g1, g2 = (0, 0)
     n = int(input())
     k = n//2
