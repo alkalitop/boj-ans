@@ -4,7 +4,7 @@ def eratosthenes(M):
     p = 2
     while p in range(int(M**0.5)+1):
         if ret[p]:
-            ret[p] = p
+            ret[p] = 1
             i = 2
             while p*i <= M:
                 ret[p*i] = 0
