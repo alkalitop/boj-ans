@@ -17,26 +17,26 @@ def mrpt_seg (n, a):
     return 0
 	
 def mrpt (n):
-	tmp = 0
-	prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
-	if n in prime:
-		return 1
-	if n % 2 == 0:
-		return 0
-	for a in prime:
-		if not mrpt_seg(n, a):
-			return 0
-	return 1
+    tmp = 0
+    prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
+    if n in prime:
+        return 1
+    if n % 2 == 0:
+        return 0
+    for a in prime:
+        if not mrpt_seg(n, a):
+            return 0
+    return 1
 
 def numadd (a, b, p = 0):
-	if p == 0:
-		return a+b
-	return (a+b)%p
+    if p == 0:
+        return a+b
+    return (a+b)%p
 
 def nummul (a, b, p = 0):
-	if p == 0:
-		return a*b
-	return a*b%p
+    if p == 0:
+        return a*b
+    return a*b%p
 
 def rho_seg (n, x, c):
     if n == 1:
