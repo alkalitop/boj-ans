@@ -1,20 +1,20 @@
-from math import gcd, log2, floor
+from math import gcd, log2, floor, sqrt
 from random import random
 
 def mrpt_seg (n, a):
-	d = n-1
-	r = 0
-	while d % 2 == 0:
-		d >>= 1
-		r += 1
-	t = pow(a, d, n)
-	if t == 1 or t == n-1:
-		return 1
-	for i in range(r-1):
-		t = pow(t, 2, n)
-		if t == n-1:
-			return 1
-	return 0
+    d = n-1
+    r = 0
+    while d % 2 == 0:
+        d >>= 1
+        r += 1
+    t = pow(a, d, n)
+    if t == 1 or t == n-1:
+        return 1
+    for i in range(r-1):
+        t = pow(t, 2, n)
+        if t == n-1:
+            return 1
+    return 0
 	
 def mrpt (n):
 	tmp = 0
@@ -39,35 +39,33 @@ def nummul (a, b, p = 0):
 	return a*b%p
 
 def rho_seg (n, x, c):
-	if n == 1:
-		return 0
-	if n % 2 == 0:
-		return 2
-	if mrpt(n):
-		return n
-		
-	y = x
-	d = 1
+    if n == 1:
+        return 0
+    if n % 2 == 0:
+	return 2
+    if mrpt(n):
+        return n	
+    y = x
+    d = 1
 	
-	while d == 1:
-		x = numadd(nummul(x, x, n), c, n)
-		y = numadd(nummul(y, y, n), c, n)
-		y = numadd(nummul(y, y, n), c, n)
+    while d == 1:
+        x = numadd(nummul(x, x, n), c, n)
+        y = numadd(nummul(y, y, n), c, n)
+        y = numadd(nummul(y, y, n), c, n)
 		
-		d = gcd(abs(x-y), n)
-		
-	if d == n:
-		return None
-	else:
-		if mrpt(d):
-			return d
-		else:
-			return rho_seg(d, x, )
+        d = gcd(abs(x-y), n)
+
+        if d == n:
+            return None
+        else:
+            if mrpt(d):
+                return d
+            else:
+                return rho_seg(d, x, c)
 
 def plr (n):
     x = 2
-    res = [0]*(floor(log2(n))+1)
-    i = 0
+    res = []
 
     while n > 1:
         alternative_c = [-1, 2, -2, 3, -3, 4, -4, 5, -5]
@@ -76,14 +74,13 @@ def plr (n):
             p = rho_seg(n, x, alternative_c[0])
             del alternative_c[0]
         if p:
-            res[i] = p
-            i += 1
+            res.append(p)
             n //= p
             if n == 1:
-                return sorted(res)
+                return res
             if mrpt(n):
-                res[i] = n
-                return sorted(res)
+                res.append(n)
+                return res
         else:
             x = floor((random()*log2(n+1)))+2
-    return sorted(res)
+    return res
