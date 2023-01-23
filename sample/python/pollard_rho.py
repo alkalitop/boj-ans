@@ -42,7 +42,7 @@ def rho_seg (n, x, c):
     if n == 1:
         return 0
     if n % 2 == 0:
-	return 2
+        return 2
     if mrpt(n):
         return n	
     y = x
