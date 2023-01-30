@@ -1,12 +1,11 @@
-import sys
-input = sys.stdin.readline
-
 n, m = map(int, input().split())
-S = [0]*n
 
+d = {}
+for i in range(n):
+    d[input()] = 1
+    
 cnt = 0
-for i in range(n): S[i] = input()
 for i in range(m):
-    if input() in S: cnt += 1
-        
+    if d.get(input(), 0): cnt += 1
+
 print(cnt)
