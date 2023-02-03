@@ -75,6 +75,21 @@ class MinSegmentTree:
             a = self.min(L, R, (start, mid, idx<<1))
             b = self.min(L, R, (mid+1, end, (idx<<1)+1))
             return self.merge(a, b)
+        
+    def replace(self, target, value, index=0):
+        if not index: index = (0,(self.size>>2)-1,1)
+        start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
+    
+        if target < start or target > end: return
+    
+        self.tree[idx] = min(self.tree[idx], value)
+        if start == end: 
+            self.arr[target] = min(self.arr[target], value)
+            return
+    
+        mid = (start+end)//2
+        self.add(target, value, (start, mid, idx<<1))
+        self.add(target, value, (mid+1, end, (idx<<1)+1))
 
 class MaxSegmentTree:
     
