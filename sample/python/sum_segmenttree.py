@@ -72,6 +72,6 @@ class MinSegmentTree:
             return self.tree[idx]
         else:
             mid = (start+end)//2
-            a = self.sum(L, R, (start, mid, idx<<1))
-            b = self.sum(L, R, (mid+1, end, (idx<<1)+1))
+            a = self.min(L, R, (start, mid, idx<<1))
+            b = self.min(L, R, (mid+1, end, (idx<<1)+1))
             return self.merge(a, b)
