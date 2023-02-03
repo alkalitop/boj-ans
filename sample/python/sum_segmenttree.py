@@ -11,19 +11,6 @@ def segmentify(tree, index, merge, arr):
     tree[idx] = merge(a, b)
     return tree[idx]
 
-def segquery(tree, index, merge, arr=0, query=0, default):
-    start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
-    L, R = interval # 합 시작, 합 끝
-    
-    if R < start or L > end:
-        return outofrange
-    elif L <= start and R >= end:
-        return tree[idx]
-    else:
-        mid = (start+end)//2
-        a = segsum(tree, (start, mid, idx<<1), (L, R))
-        b = segsum(tree, (mid+1, end, (idx<<1)+1), (L, R))
-
 class SumSegmentTree:
 
     def __init__(self, arr):
@@ -47,14 +34,17 @@ class SumSegmentTree:
             b = self.sum(self.tree, L, R, (mid+1, end, (idx<<1)+1))
             return self.merge(a, b)
         
-    def update(self, target, value, index=(0,(self.size>>2)-1,1)):
+    def add(self, target, value, index=(0,(self.size>>2)-1,1)):
         start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
     
         if target < start or target > end: return
     
-        tree[idx] += val
+        self.tree[idx] += val
         if start == end: return
     
         mid = (start+end)//2
-        self.update(tree, (start, mid, idx<<1), target, val)
-        self.update(tree, (mid+1, end, (idx<<1)+1), target, val)
+        self.update(target, value, (start, mid, idx<<1))
+        self.update(target, value, (mid+1, end, (idx<<1)+1))
+        
+    def replace(self, target, value, index=(0,(self.size>>2)-1,1)):
+        self.add(target, value-self.arr[target])
