@@ -54,11 +54,12 @@ class SumSegmentTree:
         
 class MinSegmentTree:
     
-    def __init__(self, arr):
+    def __init__(self, arr, M):
         self.arr = arr
         self.size = len(arr)<<2
-        self.tree = [0]*(self.size)
+        self.tree = [M]*(self.size)
         self.merge = lambda a,b: min(a, b)
+        self.max = M
         segmentify(tree=self.tree, index=(0,(self.size>>2)-1,1), merge=self.merge, arr=self.arr)
     
     def min(self, L, R, index=0):
@@ -66,7 +67,7 @@ class MinSegmentTree:
         start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
     
         if R < start or L > end:
-            return 1000000000 # 절대 최댓값 (경우에 따라 수정해주어야 하는 부분)
+            return self.max
         elif L <= start and R >= end:
             return self.tree[idx]
         else:
