@@ -54,12 +54,12 @@ class SumSegmentTree:
         
 class MinSegmentTree:
     
-    def __init__(self, arr, M):
+    def __init__(self, arr, max_value):
         self.arr = arr
         self.size = len(arr)<<2
-        self.tree = [M]*(self.size)
+        self.tree = [max_value]*(self.size)
         self.merge = lambda a,b: min(a, b)
-        self.max = M
+        self.max_value = max_value
         segmentify(tree=self.tree, index=(0,(self.size>>2)-1,1), merge=self.merge, arr=self.arr)
     
     def min(self, L, R, index=0):
@@ -67,11 +67,60 @@ class MinSegmentTree:
         start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
     
         if R < start or L > end:
-            return self.max
+            return self.max_value
         elif L <= start and R >= end:
             return self.tree[idx]
         else:
             mid = (start+end)//2
             a = self.min(L, R, (start, mid, idx<<1))
             b = self.min(L, R, (mid+1, end, (idx<<1)+1))
+            return self.merge(a, b)
+
+class MaxSegmentTree:
+    
+    def __init__(self, arr, min_value):
+        self.arr = arr
+        self.size = len(arr)<<2
+        self.tree = [min_value]*(self.size)
+        self.merge = lambda a,b: max(a, b)
+        self.min_value = min_value
+        segmentify(tree=self.tree, index=(0,(self.size>>2)-1,1), merge=self.merge, arr=self.arr)
+    
+    def max(self, L, R, index=0):
+        if not index: index = (0,(self.size>>2)-1,1)
+        start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
+    
+        if R < start or L > end:
+            return self.min_value
+        elif L <= start and R >= end:
+            return self.tree[idx]
+        else:
+            mid = (start+end)//2
+            a = self.max(L, R, (start, mid, idx<<1))
+            b = self.max(L, R, (mid+1, end, (idx<<1)+1))
+            return self.merge(a, b)
+        
+class MinMaxSegmentTree:
+    
+    def __init__(self, arr, min_value, max_value):
+        self.arr = arr
+        self.size = len(arr)<<2
+        self.tree = [(max_value, min_value)]*(self.size) # 0번인덱스: 최소, 1번인덱스: 최대
+        self.merge = lambda a,b: (min(a[0], b[0]), max(a[1], b[1]))
+        self.min_value = min_value
+        self.max_value = max_value
+        segmentify(tree=self.tree, index=(0,(self.size>>2)-1,1), merge=self.merge, arr=self.arr)
+    
+    def minmax(self, L, R, index=0):
+        if not index: index = (0,(self.size>>2)-1,1)
+        start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
+    
+        if R < start or L > end:
+            return (self.max_value, self.min_value)
+        elif L <= start and R >= end:
+            return self.tree[idx]
+        else:
+            mid = (start+end)//2
+            a = self.minmax(L, R, (start, mid, idx<<1))
+            b = self.minmax(L, R, (mid+1, end, (idx<<1)+1))
             return self.merge(a, b)
