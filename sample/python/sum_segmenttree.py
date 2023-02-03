@@ -88,8 +88,8 @@ class MinSegmentTree:
             return
     
         mid = (start+end)//2
-        self.add(target, value, (start, mid, idx<<1))
-        self.add(target, value, (mid+1, end, (idx<<1)+1))
+        self.replace(target, value, (start, mid, idx<<1))
+        self.replace(target, value, (mid+1, end, (idx<<1)+1))
 
 class MaxSegmentTree:
     
