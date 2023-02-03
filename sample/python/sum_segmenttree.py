@@ -51,3 +51,26 @@ class SumSegmentTree:
         
     def replace(self, target, value):
         self.add(target, value-self.arr[target])
+        
+class MinSegmentTree:
+    
+    def __init__(self, arr):
+        self.arr = arr
+        self.size = len(arr)<<2
+        self.tree = [0]*(self.size)
+        self.merge = lambda a,b: min(a, b)
+        segmentify(tree=self.tree, index=(0,(self.size>>2)-1,1), merge=self.merge, arr=self.arr)
+    
+    def min(self, L, R, index=0):
+        if not index: index = (0,(self.size>>2)-1,1)
+        start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
+    
+        if R < start or L > end:
+            return 1000000000 # 절대 최댓값 (경우에 따라 수정해주어야 하는 부분)
+        elif L <= start and R >= end:
+            return self.tree[idx]
+        else:
+            mid = (start+end)//2
+            a = self.sum(L, R, (start, mid, idx<<1))
+            b = self.sum(L, R, (mid+1, end, (idx<<1)+1))
+            return self.merge(a, b)
