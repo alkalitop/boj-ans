@@ -80,16 +80,19 @@ class MinSegmentTree:
         if not index: index = (0,(self.size>>2)-1,1)
         start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
     
-        if target < start or target > end: return
+        if target < start or target > end: return self.tree[idx]
     
-        self.tree[idx] = min(self.tree[idx], value)
         if start == end: 
-            self.arr[target] = min(self.arr[target], value)
-            return
+            self.arr[target] = value
+            self.tree[idx] = value
+            return self.tree[idx]
     
         mid = (start+end)//2
-        self.replace(target, value, (start, mid, idx<<1))
-        self.replace(target, value, (mid+1, end, (idx<<1)+1))
+        a = self.replace(target, value, (start, mid, idx<<1))
+        b = self.replace(target, value, (mid+1, end, (idx<<1)+1))
+        
+        self.tree[idx] = self.merge(a, b)
+        return self.tree[idx]
 
 class MaxSegmentTree:
     
