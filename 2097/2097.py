@@ -1,3 +1,1 @@
-from math import ceil,sqrt
-n = int(input())
-print(2*ceil(2*sqrt(n))-4 if n > 4 else 4)
+print(max(2*int(2*(int(input())-.1)**.5)-2,4))
