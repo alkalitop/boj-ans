@@ -28,5 +28,5 @@ def modfact (n, p):
 
 def modcombflt (n, k, p):
     _u = modfact(n, p)
-    _v = modmul(modfact(k), modfact(n-k), p)
+    _v = modmul(modfact(k, p), modfact(n-k, p), p)
     return moddivflt(_u, _v, p)
