@@ -30,3 +30,6 @@ def modcombflt (n, k, p):
     _u = modfact(n, p)
     _v = modmul(modfact(k, p), modfact(n-k, p), p)
     return moddivflt(_u, _v, p)
+
+def modcatflt (n, p):
+    return moddivflt(modcombflt(modmul(n, 2, p), n, p), n+1, p)
