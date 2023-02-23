@@ -1,3 +1,17 @@
+def segmentify(tree, index, merge, arr):
+    start, end, idx = index # 리스트 시작 인덱스, 리스트 끝 인덱스, 트리 인덱스
+    
+    if start == end:
+        tree[idx] = arr[start]
+        return tree[idx]
+    
+    mid = (start+end)//2
+    a = segmentify(tree, (start, mid, idx<<1), merge, arr)
+    b = segmentify(tree, (mid+1, end, (idx<<1)+1), merge, arr)
+    tree[idx] = merge(a, b)
+    return tree[idx]
+
+
 class MinSegmentTree:
     
     def __init__(self, arr, max_value):
