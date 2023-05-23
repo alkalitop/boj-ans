@@ -1,5 +1,3 @@
-# ©️ 2022 sanha1229
-
 class matrix:
     def __init__(self, data):
         self.raw = data
