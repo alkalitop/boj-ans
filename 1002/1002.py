@@ -6,8 +6,10 @@ for i in range(0, T):
     B = 2*(y2 - y1)
     C = (x1**2 - x2**2) + (y1**2 - y2**2) + (r2**2 - r1**2)
     if A == 0 and B == 0: 
-        if r1 == r2:
+        if r1 == r2 and not (r1 == 0 and r2 == 0):
             print(-1)
+        elif r1 == r2 and r1 == 0 and r2 == 0:
+            print(1)
         else:
             print(0)
     else:
