@@ -1,14 +1,12 @@
-from bisect import bisect_left, bisect_right
-
-x, k = map(int, input().split())
+from bisect import *
+n = int(input().split()[0])
 a = list(map(int, input().split()))
 
-r = x**2
+c = n**2
 
-left = a[:x]
-right = sorted(a[x:])
+l = a[:n]
+r = sorted(a[n:])
 
-for i in left:
-    r -= bisect_right(right, i) - bisect_left(right, i)
-    
-print(r)
+for i in l:
+    c -= bisect_right(r, i) - bisect_left(r, i)   
+print(c)
