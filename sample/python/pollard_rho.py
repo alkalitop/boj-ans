@@ -2,7 +2,7 @@ from math import gcd, log2, floor, sqrt
 from random import random
 
 def mrpt_seg (n, a):
-	d = n-1
+	d = n-1 
 	r = 0
 	while d % 2 == 0:
 		d >>= 1
