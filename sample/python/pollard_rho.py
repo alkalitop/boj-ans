@@ -96,3 +96,29 @@ def plr (n, return_dict = 0):
         else:
             x = floor((random()*log2(n+1)))+2
     return res
+
+def phi (n):
+    res = n
+    pr = plr(n, return_dict=1)
+    for k in pr:
+        res *= k-1
+        res //= k
+    return res
+
+def divisor (n):
+    res = []
+    pr = plr(n, return_dict=1)
+
+    s = ''
+    t = []
+
+    i = 0
+    for k in pr:
+        s += ' '*i + f'for p_{i} in range({pr[k]+1}):\n'
+        t.append(f'({k}**p_{i})')
+        i += 1
+
+    s += ' '*i + f'res.append({"*".join(t)})'
+    exec(s)
+
+    return res
