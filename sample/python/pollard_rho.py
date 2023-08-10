@@ -122,3 +122,32 @@ def divisor (n):
     exec(s)
 
     return res
+
+def modpow (a, x, p):
+    if x == 0:
+        return 1
+    _t = modpow(a, x//2, p)
+    if x % 2 == 1:
+        return _t*_t*a % p
+    else:
+        return _t*_t % p
+
+def tet_seg (x, i, m):
+    if m == 1:
+        return 1
+    if i == len(x)-1:
+        return x[i]
+
+    t = tet_seg(x, i+1, phi(m))
+
+    if x[i]**t < m:
+        return modpow(x[i], t, m)
+    else:
+        return modpow(x[i], t, m) + m
+
+def tetration (x, m):
+    if len(x) == 1: return x[0] % m
+    if m == 1: return 1
+
+    phi_m = phi(m)
+    return modpow(x[0], tet_seg(x, 1, phi(m)), m)
