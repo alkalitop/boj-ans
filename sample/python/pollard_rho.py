@@ -132,7 +132,7 @@ def modpow (a, x, p):
     else:
         return _t*_t % p
 
-def tet2_seg (x, i, m):
+def tet_seg2 (x, i, m):
     if m == 1:
         return 1
     if i == len(x)-1:
@@ -145,28 +145,22 @@ def tet2_seg (x, i, m):
     else:
         return modpow(x[i], t, m) + m
 
-def tetration2 (x, m):
-    if len(x) == 1: return x[0] % m
-    if m == 1: return 1
-
-    phi_m = phi(m)
-    return modpow(x[0], tet2_seg(x, 1, phi(m)), m)
-
-def tet3_seg (x, i, m):
+def tet_seg3 (x, i, m):
     if m == 1:
         return 1
 
     if i == len(x)-1:
         return x[i]
 
-    t = tet3_seg(x, i+1, phi(m))
+    t = tet_seg3(x, i+1, phi(m))
     u = modpow(x[i], t, m)
 
     return u if u else m
 
-def tetration3 (x, m):
+def tetration (x, m, seg=1):
     if len(x) == 1: return x[0] % m
-    if m == 1: return 1
 
-    phi_m = phi(m)
-    return modpow(x[0], tet3_seg(x, 1, phi(m)), m)
+    if seg == 2:
+        return modpow(x[0], tet_seg2(x, 1, phi(m)), m)
+    elif seg == 3:
+        return modpow(x[0], tet_seg3(x, 1, phi(m)), m)
