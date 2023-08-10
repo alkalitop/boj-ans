@@ -145,6 +145,20 @@ def tet_seg (x, i, m):
     else:
         return modpow(x[i], t, m) + m
 
+"""
+def tet_seg (x, i, m):
+    if m == 1:
+        return 1
+
+    if i == len(x)-1:
+        return x[i]
+
+    t = tet_seg(x, i+1, phi(m))
+    u = modpow(x[i], t, m)
+
+    return u if u else m
+"""
+
 def tetration (x, m):
     if len(x) == 1: return x[0] % m
     if m == 1: return 1
