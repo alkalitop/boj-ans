@@ -8,6 +8,4 @@ def eea(n, m):
         t = t1 - s * t2
         t1, t2 = t2, t
 
-    if r1 != 1:
-        return 0
-    return (m + t1) % m
+    return 0 if r1 != 1 else (m + t1) % m
