@@ -1,1 +1,1 @@
-print(max(2*int(2*(int(input())-.1)**.5)-2,4))
+print(2*int(max(4*int(input())-3,9)**.5)-2)
