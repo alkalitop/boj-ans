@@ -9,8 +9,7 @@ q.put(item)
 # dequeue()
 q.get(0)
 
-# peek()
-# 불가
+# peek() 불가
 
 # size()
 q.qsize()
