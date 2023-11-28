@@ -9,3 +9,6 @@ stk.append(item)
 
 # peek()
 stk[-1]
+
+# size()
+len(stk)
