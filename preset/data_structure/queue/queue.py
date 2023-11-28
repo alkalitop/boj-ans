@@ -10,7 +10,7 @@ q.put(item)
 q.get(0)
 
 # peek()
-# ???
+# 불가
 
 # size()
 q.qsize()
