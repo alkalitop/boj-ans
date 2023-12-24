@@ -9,11 +9,11 @@
 
 ```python
 mrpt(2)
-# output: 1
+# return: 1
 
 mrpt(11)
-# output: 1
+# return: 1
 
 mrpt(16)
-# output: 0
+# return: 0
 ```
