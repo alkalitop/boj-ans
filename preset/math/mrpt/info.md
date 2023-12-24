@@ -5,7 +5,7 @@
 - [참고 1](https://ko.wikipedia.org/wiki/밀러-라빈_소수판별법)
   
 ### 구현
-[> 코드](./mrpt.py)
+[코드](./mrpt.py)
 
 ```python
 mrpt(2)
