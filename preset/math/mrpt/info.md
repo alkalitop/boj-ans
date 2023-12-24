@@ -8,4 +8,4 @@
 ```python
 mrpt(n)
 ```
-[코드](./mrpt.py)
+[> 코드](./mrpt.py)
