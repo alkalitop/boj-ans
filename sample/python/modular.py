@@ -2,7 +2,7 @@ def modadd (a, b, p):
     return ((a%p)+(b%p))%p
 
 def modsub (a, b, p):
-    return ((a%p)-(b%p))%p
+    return ((a%p)-(b%p)+p)%p
 
 def modmul (a, b, p):
     return ((a%p)*(b%p))%p
@@ -13,18 +13,18 @@ def moddivflt (a, b, p):
 def modpow (a, x, p):
     if x == 0:
         return 1
-    _t = modpow(a, x//2, p)
+    t = modpow(a, x//2, p)
     if x % 2 == 1:
-        return _t*_t*a % p
+        return t*t*a % p
     else:
-        return _t*_t % p
+        return t*t % p
     
 def modfact (n, p):
-    _t = 1
+    t = 1
     for i in range(2, n+1):
-        _t *= i
-        _t %= p
-    return _t
+        t *= i
+        t %= p
+    return t
 
 def modcombflt (n, k, p):
     _u = modfact(n, p)
