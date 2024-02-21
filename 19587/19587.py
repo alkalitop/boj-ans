@@ -114,5 +114,6 @@ dp[1] = 1
 
 for i in range(2, 200):
     dp[i] = 2*dp[i-1] + dp[i-2]
+    dp[i] %= mod
 
-print((guess_nth_term(vector(dp), int(input())+1)+mod)%mod)
+print(guess_nth_term(vector(dp), int(input())+1))
