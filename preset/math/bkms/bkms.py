@@ -52,14 +52,12 @@ def berlekamp_massey(x):
         t = 0
         for j in range(cur.size()):
             t = (t + x[i-j-1] * cur[j]) % mod
-        # end
         if (t - x[i]) % mod == 0: continue
         if cur.empty():
             cur.resize(i+1)
             lf = i
             ld = (t - x[i]) % mod
             continue
-        # end
         k = -(x[i] - t) * ipow(ld, mod - 2) % mod
         c = vector(i-lf-1)
         c.push_back(k)
@@ -67,15 +65,12 @@ def berlekamp_massey(x):
         if c.size() < cur.size(): c.resize(cur.size())
         for j in range(cur.size()):
             c[j] = (c[j] + cur[j]) % mod
-        # end
         if i-lf+ls.size() >= cur.size():
             ls, lf, ld = cur, i, (t - x[i]) % mod
-        # end
         cur = c
     for i in range(cur.size()):
         cur[i] = (cur[i] % mod + mod) % mod
     return cur
-# end
 
 def get_nth(rec, dp, n):
     m = rec.size()
@@ -90,17 +85,12 @@ def get_nth(rec, dp, n):
             for k in range(m):
                 t[j+k] += v[j] * w[k] % mod
                 if t[j+k] >= mod: t[j+k] -= mod
-            # end
-        # end
         for j in range(2*m-1, m-1, -1):
             for k in range(1, m+1):
                 t[j-k] += t[j] * rec[k-1] % mod
                 if t[j-k] >= mod: t[j-k] -= mod
-            # end
-        # end
         t.resize(m)
         return t
-    # end
     while n:
         if n & 1:
             s = mul(s, t)
@@ -111,7 +101,6 @@ def get_nth(rec, dp, n):
     for i in range(m):
         ret += s[i] * dp[i] % mod
     return ret % mod
-# end
 
 def guess_nth_term(x, n):
     if n < x.size(): return x[n]
