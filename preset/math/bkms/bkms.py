@@ -1,4 +1,4 @@
-mod = 10**9+7;
+mod = 10**9+7
 
 class vector:
     def __init__(self, size=0, default=0):
