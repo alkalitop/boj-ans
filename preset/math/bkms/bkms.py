@@ -106,4 +106,4 @@ def guess_nth_term(x, n):
     if n < x.size(): return x[n]
     v = berlekamp_massey(x)
     if v.empty(): return 0
-    return (get_nth(v, x, n) + mod) % mod
+    return get_nth(v, x, n)
