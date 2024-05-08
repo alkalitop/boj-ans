@@ -103,15 +103,6 @@ def phi (n):
         res //= k
     return res
 
-def modpow (a, x, p):
-    if x == 0:
-        return 1
-    _t = modpow(a, x//2, p)
-    if x & 1:
-        return _t*_t*a % p
-    else:
-        return _t*_t % p
-
 def tet_seg (x, i, m):
     if m == 1:
         return 1
@@ -121,10 +112,10 @@ def tet_seg (x, i, m):
     t = tet_seg(x, i+1, phi(m))
 
     if t*log2(x[i]) < log2(m):
-        return modpow(x[i], t, m)
+        return pow(x[i], t, m)
     else:
-        return modpow(x[i], t, m) + m
+        return pow(x[i], t, m) + m
 
 def tetration (x, m):
     if len(x) == 1: return x[0] % m
-    return modpow(x[0], tet_seg(x, 1, phi(m)), m)
+    return pow(x[0], tet_seg(x, 1, phi(m)), m)
