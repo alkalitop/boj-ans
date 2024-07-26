@@ -62,12 +62,14 @@ class SumSegmentTree:
         if not index: index = (0, len(self.arr)-1, 1)
         start, end, idx = index
 
-        if start == end:
-            self.tree[idx] = value
-    
         if R < start or L > end:
             return
-        elif L <= start and R >= end:
+
+        if start == end:
+            self.tree[idx] = value
+            return
+        
+        if L <= start and R >= end:
             self.lazy_trig[idx] = 1
             self.lazy_value[idx] = value
             return
