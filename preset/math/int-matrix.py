@@ -126,7 +126,7 @@ class matrix:
         elif isinstance(arg, tuple):
             return self.pow(*arg)
         else:
-            raise ValueError
+            raise ValueError()
 
     def transpose(self):
         data = [None] * self.clen
