@@ -3,7 +3,7 @@ from math import gcd
 def mrpt_seg (n, a):
     d = ~-n
     r = 0
-    while -~n & 1:
+    while -~d & 1:
         d >>= 1
         r += 1
     t = pow(a, d, n)
