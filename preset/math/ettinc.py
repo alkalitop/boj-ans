@@ -1,6 +1,6 @@
 def ettinc(M):
     ret = [1]*(M+1)
-    ret[0], ret[1] = (0, 0)
+    ret[0], ret[1] = 0, 0
     p = 2
     while p in range(int(M**0.5)+1):
         if ret[p]:
