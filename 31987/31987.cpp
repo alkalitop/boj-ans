@@ -75,6 +75,7 @@ ll query(ll i, ll j, ll k) {
 int main(void) {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+    cout.tie(NULL);
 
     ll Q, i, j, k;
     cin >> Q;
